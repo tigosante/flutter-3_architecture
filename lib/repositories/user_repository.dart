@@ -26,8 +26,6 @@ class UserRepositoryConcrete implements UserRepository {
 
   @override
   // TODO: mapear exception
-  Future<UserEntity> create(UserEntity user) async {
-    await _dataSource.create(user: UserCreateRequest.fromEntity(user, ""));
-    return user;
-  }
+  Future<UserEntity> create(UserEntity user) async =>
+      (await _dataSource.create(user: UserCreateRequest.fromEntity(user, ""))).toEntity();
 }

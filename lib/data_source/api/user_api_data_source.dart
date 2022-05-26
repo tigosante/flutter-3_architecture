@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_architecture/data_source/api/data/user/user_create_response.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:flutter_architecture/data_source/api/data/user/user_create_request.dart';
 import 'package:flutter_architecture/data_source/api/data/user/user_get_response.dart';
@@ -7,7 +8,7 @@ part 'user_api_data_source.g.dart';
 
 mixin UserApiDataSource {
   Future<UserGetResponse?> get({required String email});
-  Future create({required UserCreateRequest user});
+  Future<UserCreateResponse> create({required UserCreateRequest user});
 }
 
 class UserApiDataSourceConcrete extends _UserApiDataSourceConcreteInto implements UserApiDataSource {
@@ -24,5 +25,5 @@ abstract class UserApiDataSourceConcreteInto implements UserApiDataSource {
 
   @override
   @POST("/user")
-  Future create({@Body() required UserCreateRequest user});
+  Future<UserCreateResponse> create({@Body() required UserCreateRequest user});
 }

@@ -62,6 +62,7 @@ EmailEntity _$EmailEntityFromJson(Map<String, dynamic> json) => EmailEntity(
       value: json['value'] as String,
     );
 
-Map<String, dynamic> _$EmailEntityToJson(EmailEntity instance) => <String, dynamic>{
+Map<String, dynamic> _$EmailEntityToJson(EmailEntity instance) =>
+    <String, dynamic>{
       'value': instance.value,
     };

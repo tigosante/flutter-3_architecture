@@ -58,10 +58,12 @@ extension $PasswordEntityCopyWith on PasswordEntity {
 // JsonSerializableGenerator
 // **************************************************************************
 
-PasswordEntity _$PasswordEntityFromJson(Map<String, dynamic> json) => PasswordEntity(
+PasswordEntity _$PasswordEntityFromJson(Map<String, dynamic> json) =>
+    PasswordEntity(
       value: json['value'] as String,
     );
 
-Map<String, dynamic> _$PasswordEntityToJson(PasswordEntity instance) => <String, dynamic>{
+Map<String, dynamic> _$PasswordEntityToJson(PasswordEntity instance) =>
+    <String, dynamic>{
       'value': instance.value,
     };

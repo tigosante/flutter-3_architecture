@@ -21,31 +21,38 @@ class _UserApiDataSourceConcreteInto implements UserApiDataSourceConcreteInto {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    final _result = await _dio.fetch<Map<String, dynamic>?>(_setStreamType<UserGetResponse>(
-        Options(method: 'GET', headers: _headers, extra: _extra)
-            .compose(_dio.options, '/user/${email}', queryParameters: queryParameters, data: _data)
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = _result.data == null ? null : UserGetResponse.fromJson(_result.data!);
+    final _result = await _dio.fetch<Map<String, dynamic>?>(
+        _setStreamType<UserGetResponse>(
+            Options(method: 'GET', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/user/${email}',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value =
+        _result.data == null ? null : UserGetResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<dynamic> create({required user}) async {
+  Future<UserCreateResponse> create({required user}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(user.toJson());
-    final _result = await _dio.fetch(_setStreamType<dynamic>(Options(method: 'POST', headers: _headers, extra: _extra)
-        .compose(_dio.options, '/user', queryParameters: queryParameters, data: _data)
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = _result.data;
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<UserCreateResponse>(
+            Options(method: 'POST', headers: _headers, extra: _extra)
+                .compose(_dio.options, '/user',
+                    queryParameters: queryParameters, data: _data)
+                .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = UserCreateResponse.fromJson(_result.data!);
     return value;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
-        !(requestOptions.responseType == ResponseType.bytes || requestOptions.responseType == ResponseType.stream)) {
+        !(requestOptions.responseType == ResponseType.bytes ||
+            requestOptions.responseType == ResponseType.stream)) {
       if (T == String) {
         requestOptions.responseType = ResponseType.plain;
       } else {
