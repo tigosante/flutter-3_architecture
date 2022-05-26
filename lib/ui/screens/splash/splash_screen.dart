@@ -36,7 +36,7 @@ class _SplashScreenWidgetState extends State<SplashScreenWidget> {
   double get _shortestSide => MediaQuery.of(context).size.shortestSide;
 
   Widget get _progressIndicator {
-    if (Platform.isIOS) {
+    if (Platform.isIOS || Platform.isMacOS) {
       return const CircularProgressIndicator.adaptive(
         backgroundColor: ApplicationColors.white,
       );

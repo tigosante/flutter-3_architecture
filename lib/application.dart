@@ -13,7 +13,6 @@ class Application extends StatelessWidget {
   final ApplicationRouter _applicationRouter;
 
   String get _title => kReleaseMode ? "Flutter Architecture" : "Flutter Architecture - Debug";
-  List<NavigatorObserver> _navigatorObservers() => [_applicationRouter.routerObservers];
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class Application extends StatelessWidget {
       theme: ApplicationTheme.themeData,
       debugShowCheckedModeBanner: kDebugMode,
       routeInformationParser: _applicationRouter.defaultRouteParser(),
-      routerDelegate: _applicationRouter.delegate(navigatorObservers: _navigatorObservers),
+      routerDelegate: _applicationRouter.delegate(navigatorObservers: () => [_applicationRouter.routerObservers]),
     );
   }
 }

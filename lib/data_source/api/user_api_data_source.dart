@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_architecture/data_source/api/data/user/user_create_response.dart';
+import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:flutter_architecture/data_source/api/data/user/user_create_request.dart';
 import 'package:flutter_architecture/data_source/api/data/user/user_get_response.dart';
@@ -11,6 +12,7 @@ mixin UserApiDataSource {
   Future<UserCreateResponse> create({required UserCreateRequest user});
 }
 
+@LazySingleton(as: UserApiDataSource)
 class UserApiDataSourceConcrete extends _UserApiDataSourceConcreteInto implements UserApiDataSource {
   UserApiDataSourceConcrete(Dio dio) : super(dio);
 }

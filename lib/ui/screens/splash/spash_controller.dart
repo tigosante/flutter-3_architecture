@@ -1,4 +1,4 @@
-import 'package:flutter_architecture/ui/routes/router.gr.dart';
+import 'package:flutter_architecture/ui/routes/application_router.gr.dart';
 import 'package:flutter_architecture/ui/routes/router_module.dart';
 import 'package:injectable/injectable.dart';
 

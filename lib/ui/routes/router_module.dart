@@ -1,15 +1,16 @@
-import 'package:flutter_architecture/ui/routes/router.gr.dart';
+import 'package:flutter_architecture/ui/routes/application_router.gr.dart';
 import 'package:flutter_architecture/ui/routes/router_observers.dart';
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton()
 class ApplicationRouter extends ApplicationRouterConcrete {
-  factory ApplicationRouter.instance() => _singleton;
-  ApplicationRouter._internal();
+  ApplicationRouter({
+    required ApplicationRouterObservers applicationRouterObservers,
+  }) : _applicationRouterObservers = applicationRouterObservers;
 
-  static final ApplicationRouter _singleton = ApplicationRouter._internal();
-  static ApplicationRouterObservers? _routerObservers;
+  final ApplicationRouterObservers _applicationRouterObservers;
 
-  BuildContext get currentContext => _singleton.navigatorKey.currentContext!;
-  ApplicationRouterObservers get routerObservers =>
-      _routerObservers ?? (_routerObservers = ApplicationRouterObserversConcrete());
+  BuildContext get currentContext => super.navigatorKey.currentContext!;
+  ApplicationRouterObservers get routerObservers => _applicationRouterObservers;
 }
