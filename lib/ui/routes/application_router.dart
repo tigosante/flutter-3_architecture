@@ -9,10 +9,12 @@ import 'package:flutter_architecture/ui/screens/splash/splash_screen.dart';
       path: "/",
       initial: true,
       page: SplashScreen,
-    ),
-    AutoRoute(
-      path: "home",
-      page: HomeScreen,
+      children: [
+        AutoRoute(
+          path: "home",
+          page: HomeScreen,
+        ),
+      ],
     ),
   ],
 )
