@@ -16,6 +16,10 @@ mixin ApplicationTheme {
 
   static ThemeData get themeData => ThemeData(
         colorSchemeSeed: ApplicationColors.primary,
+        appBarTheme: const AppBarTheme(
+          elevation: 0,
+          color: ApplicationColors.primary,
+        ),
         inputDecorationTheme: const InputDecorationTheme(
           border: UnderlineInputBorder(borderSide: _borderGrey10),
           focusedBorder: UnderlineInputBorder(borderSide: _borderGrey10),
