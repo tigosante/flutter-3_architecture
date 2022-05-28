@@ -1,10 +1,7 @@
 import 'package:flutter_architecture/ui/layout/application_colors.dart';
-import 'package:flutter_architecture/ui/layout/application_fonts_family.dart';
 import 'package:flutter/material.dart';
 
 mixin ApplicationTheme {
-  static const String _fontPrimary = ApplicationFontsFamily.primary;
-
   static const BorderSide _borderRed = BorderSide(color: ApplicationColors.red);
   static const BorderSide _borderGrey10 = BorderSide(color: ApplicationColors.gray10);
 
@@ -41,28 +38,24 @@ mixin ApplicationTheme {
         ),
         textTheme: const TextTheme(
           headline2: TextStyle(
-            fontFamily: _fontPrimary,
             fontSize: 28,
             fontStyle: FontStyle.normal,
             fontWeight: FontWeight.w700,
             color: ApplicationColors.gray100,
           ),
           headline3: TextStyle(
-            fontFamily: _fontPrimary,
             fontSize: 22,
             fontStyle: FontStyle.normal,
             fontWeight: FontWeight.w700,
             color: ApplicationColors.gray100,
           ),
           caption: TextStyle(
-            fontFamily: _fontPrimary,
             fontSize: 13,
             fontWeight: FontWeight.w400,
             fontStyle: FontStyle.normal,
             color: ApplicationColors.gray100,
           ),
           bodyText1: TextStyle(
-            fontFamily: _fontPrimary,
             fontSize: 17,
             fontWeight: FontWeight.w400,
             fontStyle: FontStyle.normal,

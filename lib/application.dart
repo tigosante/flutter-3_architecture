@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_architecture/ui/layout/application_theme.dart';
-import 'package:flutter_architecture/ui/routes/router_module.dart';
+import 'package:flutter_architecture/ui/routes/application_router.dart';
 import 'package:flutter/foundation.dart' show kReleaseMode, kDebugMode;
 
 class Application extends StatelessWidget {

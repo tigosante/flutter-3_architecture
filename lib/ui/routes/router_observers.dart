@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:injectable/injectable.dart';
 
 mixin ApplicationRouterObservers implements NavigatorObserver {
   void firebaseAnalyticsObserver(List<NavigatorObserver> observers);
 }
 
-@LazySingleton(as: ApplicationRouterObservers)
 class ApplicationRouterObserversConcrete extends NavigatorObserver implements ApplicationRouterObservers {
   final List<NavigatorObserver> _observers = [];
 

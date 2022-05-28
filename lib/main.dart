@@ -1,11 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter_architecture/application.dart';
-import 'package:flutter_architecture/main/dependecy_injection/dependency_injection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_architecture/ui/routes/router_module.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  DependencyInjaction.startModules();
-  runApp(Application(applicationRouter: DependencyInjaction.get()));
+  runApp(Application(applicationRouter: ApplicationRouterModule.instance));
 }

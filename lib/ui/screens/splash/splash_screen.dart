@@ -1,39 +1,23 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_architecture/main/dependecy_injection/dependency_injection.dart';
 import 'package:flutter_architecture/ui/layout/application_colors.dart';
-import 'package:flutter_architecture/ui/screens/splash/spash_controller.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends SplashScreenWidget {
-  SplashScreen({Key? key})
-      : super(
-          key: key,
-          controller: DependencyInjaction.get(),
-        );
+  const SplashScreen({Key? key}) : super(key: key);
 }
 
 class SplashScreenWidget extends StatefulWidget {
   const SplashScreenWidget({
     Key? key,
-    required SplashController controller,
-  })  : _controller = controller,
-        super(key: key);
-
-  final SplashController _controller;
+  }) : super(key: key);
 
   @override
   State<SplashScreenWidget> createState() => _SplashScreenWidgetState();
 }
 
 class _SplashScreenWidgetState extends State<SplashScreenWidget> {
-  @override
-  void initState() {
-    super.initState();
-    widget._controller.start();
-  }
-
   double get _shortestSide => MediaQuery.of(context).size.shortestSide;
 
   Widget get _progressIndicator {
